@@ -16,3 +16,4 @@ results/*.md
 # Environment
 .env
 venv/
+modify_notebook*.py
