@@ -17,3 +17,5 @@ results/*.md
 .env
 venv/
 modify_notebook*.py
+notebooks/data/sample.pdf
+
