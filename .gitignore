@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+
+# Generated Results (keep directory but ignore content)
+results/*.json
+results/*.md
+!results/.gitkeep
+
+# Environment
+.env

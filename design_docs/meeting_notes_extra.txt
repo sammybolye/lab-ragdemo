@@ -1,0 +1,19 @@
+Subject: Re: Customer 360 Architecture Review
+Date: 2025-12-12
+From: Lead Architect
+
+Hi Team,
+
+Great job on the initial spec. I noticed a couple of missing fields that form the core contact info. 
+Please ensure these are added to the final ETL implementation for the Salesforce -> Snowflake pipeline.
+
+1. **Email Address**: We need to bring over the `PersonEmail` field. Map it to `PRIMARY_EMAIL` in the target. 
+   *Transformation*: Please Ensure it is strictly lowercased.
+
+2. **Phone Number**: The `Phone` field needs to be mapped to `CONTACT_PHONE`. 
+   *Validation*: We need to strip out all non-numeric characters (dashes, parentheses) so it's just raw digits.
+
+Also, just a heads up, the `BillingState` mapping discussed earlier is critical for the regional analytics dashboard, so double check the lookup logic there.
+
+Thanks,
+Architect

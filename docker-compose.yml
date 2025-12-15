@@ -1,0 +1,26 @@
+services:
+  jupyter:
+    build: .
+    container_name: rag-lab-jupyter
+    ports:
+      - "8889:8888"
+    volumes:
+      - .:/workspace
+    environment:
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
+      - QDRANT_URL=http://qdrant:6333
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - qdrant
+
+  qdrant:
+    image: qdrant/qdrant
+    container_name: rag-lab-qdrant
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+volumes:
+  qdrant_data:
